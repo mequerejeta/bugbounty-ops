@@ -16,4 +16,12 @@ Referencia: OWASP WSTG-INPV.
 - [ ] Params numéricos y de filtro/orden (`sort=`, `order=`) suelen no sanitizarse igual que los de búsqueda
 - [ ] NoSQL: probar operadores (`$ne`, `$gt`) en JSON bodies de login/búsqueda
 
+## SSTI (Server-Side Template Injection)
+- [ ] Cualquier input que termine renderizado en un template del server (emails transaccionales, generación de PDF/reportes, "preview" de contenido) — probar payloads básicos (`{{7*7}}`, `${7*7}`, `<%= 7*7 %>`) según el motor sospechado
+- [ ] Especial atención a features de "personalización" de mensajes/plantillas expuestas a usuarios (ej. constructores de email marketing, firmas, notificaciones custom)
+
+## XXE / LFI
+- [ ] Cualquier endpoint que acepte XML (upload, SOAP, SAML) — probar DOCTYPE con entidad externa
+- [ ] Cualquier feature que lea un archivo por path/nombre dado por el usuario (export, template, logo, import) — probar path traversal (`../../../../etc/passwd`) y wrappers (`php://filter`, etc. según el stack)
+
 No corras herramientas de explotación automática pesada (sqlmap en modo agresivo, etc.) sin confirmar que el programa lo permite explícitamente en su policy.
