@@ -1,0 +1,5 @@
+# Salidas de recon (pueden ser pesadas o contener datos del programa) — no versionar
+targets/*/recon-output/
+*.log
+
+# No versionar la carpeta template como "programa real"
