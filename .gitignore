@@ -1,5 +1,6 @@
-# Salidas de recon (pueden ser pesadas o contener datos del programa) — no versionar
-targets/*/recon-output/
-*.log
+# Trabajo real por programa (scope, notas, hallazgos sin reportar): nunca al repo, que es público.
+# Solo se versiona el template.
+targets/*
+!targets/_template/
 
-# No versionar la carpeta template como "programa real"
+*.log
